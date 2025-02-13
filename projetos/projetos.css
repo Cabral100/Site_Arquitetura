@@ -1,0 +1,329 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+nav {
+    position: fixed;
+    width: 100%;
+    padding: 2rem 6rem;
+    z-index: 100;
+    transition: background-color 0.3s ease, padding 0.3s ease;
+}
+
+nav.scrolled {
+    background-color: rgba(255, 255, 255, 0.9); /* Fundo branco */
+    padding: 1rem 6rem;
+}
+
+.nav-content {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    color: white;
+    text-decoration: none;
+    font-size: 1.5rem;
+    letter-spacing: 0.2em;
+    font-weight: 300;
+}
+
+.nav-links {
+    display: flex;
+    gap: 3rem;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 0.875rem;
+    letter-spacing: 0.1em;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #e88600;
+}
+
+/* Ajustando a cor do texto ao dar scroll */
+nav.scrolled .logo,
+nav.scrolled .nav-links a {
+    color: black;
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+}
+
+.hero-content {
+    position: relative;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 6rem;
+    color: white;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.hero-content h1 {
+    font-size: 5rem;
+    font-weight: 300;
+    margin-bottom: 1rem;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeUp 1s forwards 0.5s;
+}
+
+.hero-content p {
+    font-size: 1.5rem;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeUp 1s forwards 0.7s;
+}
+
+
+
+.project-section {
+    padding: 8rem 2rem 4rem;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 300;
+    margin-bottom: 3rem;
+    color: #333;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.portfolio-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeUp 1s forwards;
+}
+
+.project-image {
+    position: relative;
+    height: 400px;
+    overflow: hidden;
+}
+
+.project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.project-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.portfolio-item:hover .project-overlay {
+    opacity: 1;
+}
+
+.portfolio-item:hover .project-image img {
+    transform: scale(1.1);
+}
+
+.project-details {
+    color: white;
+    text-align: center;
+    padding: 2rem;
+}
+
+.project-details h3 {
+    font-size: 1.5rem;
+    font-weight: 300;
+    margin-bottom: 1rem;
+}
+
+.project-details p {
+    margin-bottom: 1.5rem;
+}
+
+.btn-view {
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    background: white;
+    color: black;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.btn-view:hover {
+    background: #e88600;
+    color: white;
+}
+
+/* Footer styles remain the same */
+.footer {
+    background: #111;
+    color: white;
+    padding: 4rem 2rem;
+}
+
+.footer-content {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 3rem;
+}
+
+.footer-info h3 {
+    font-size: 1.5rem;
+    font-weight: 300;
+    margin-bottom: 1rem;
+}
+
+.footer-contact p {
+    margin-bottom: 0.5rem;
+    color: #999;
+}
+
+.footer-social {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.social-link {
+    color: #999;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-size: 2rem;
+}
+
+.social-link:hover {
+    transform: scale(1.1);
+}
+
+@keyframes fadeUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 768px) {
+    nav {
+        padding: 1.5rem;
+    }
+
+    .nav-content {
+        gap: 0.8rem;
+    }
+
+    .nav-links {
+        gap: 1.5rem;
+    }
+
+    .logo {
+        font-size: 1.5rem;
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .project-image {
+        height: 300px;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .footer-social {
+        justify-content: center;
+    }
+}
+
+.footer-social {
+    display: flex;
+    gap: 1.5rem; /* Espaçamento entre os ícones */
+}
+
+.social-link {
+    color: #999; /* Cor padrão */
+    text-decoration: none;
+    transition: color 0.3s ease, transform 0.3s ease; /* Transição suave para cor e transformação */
+    font-size: 2rem; /* Tamanho do ícone */
+}
+
+.social-link:hover {
+    color: #e88600; /* Cor ao passar o mouse */
+    transform: scale(1.1); /* Aumenta o tamanho do ícone ao passar o mouse */
+}
+
+.fab.fa-instagram {
+    color: #E1306C; /* Cor do Instagram */
+}
+
+.fab.fa-linkedin {
+    color: #0077B5; /* Cor do LinkedIn */
+}
+
+.fab.fa-facebook-f {
+    color: #3b5998; /* Cor do Facebook */
+}
+
+/* Efeito de hover específico para cada ícone */
+.fab.fa-instagram:hover {
+    color: #E1306C; /* Mantém a cor do Instagram ao passar o mouse */
+    transform: scale(1.1); /* Aumenta o tamanho do ícone ao passar o mouse */
+}
+
+.fab.fa-linkedin:hover {
+    color: #0077B5; /* Mantém a cor do LinkedIn ao passar o mouse */
+    transform: scale(1.1); /* Aumenta o tamanho do ícone ao passar o mouse */
+}
+
+.fab.fa-facebook-f:hover {
+    color: #3b5998; /* Mantém a cor do Facebook ao passar o mouse */
+    transform: scale(1.1); /* Aumenta o tamanho do ícone ao passar o mouse */
+}
